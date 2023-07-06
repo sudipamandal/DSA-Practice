@@ -1,6 +1,6 @@
 // Brute Force Technique:
-// Sort the array - quickSort, MergeSort
-// Return the last indexed element in the array : arr[n-2] -> if(arr[n-2] != largest)
+Sort the array - quickSort, MergeSort
+Return the last indexed element in the array : arr[n-2] -> if(arr[n-2] != largest)
 
 // Better Solution:
 int print2largest(int arr[], int n)
