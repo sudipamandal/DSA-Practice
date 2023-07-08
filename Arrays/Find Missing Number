@@ -1,0 +1,18 @@
+//Brute Force Approach
+int missingNumber(int A[], int N)
+{
+    // Your code goes here
+    int flag = 0;
+    for(int i = 1; i < N; i++)
+    {
+        for(int j = 0; j < N-1; i++)
+        {
+            if(A[j] == i)
+            {
+                flag = 1;
+                break;
+            }
+        }
+        if(flag == 0) return i;
+    }
+}
