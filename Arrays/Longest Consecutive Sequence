@@ -1,0 +1,57 @@
+//Brute Force Approach
+bool linearSearch(int arr[], int n, int ele)
+    {
+        for(int i = 0; i < n; i++)
+        {
+            if(arr[i] == ele)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    int findLongestConseqSubseq(int arr[], int n)
+    {
+      //Your code here
+      int cnt;
+      int maxcnt = 0;
+      for(int i = 0; i < n; i++)
+      {
+          int x = arr[i];
+          cnt = 1;
+          while(linearSearch(arr, n, x+1) == true)
+          {
+              cnt++;
+              x = x+1;
+          }
+          maxcnt = max(maxcnt, cnt);
+      }
+      return maxcnt;
+    }
+//Better Solution
+int findLongestConseqSubseq(int arr[], int n)
+    {
+      //Your code here
+      int longestLength = 0;
+      int currCount = 0;
+      int lastSmallest = INT_MIN;
+      
+      sort(arr, arr + n);
+      
+      for(int i = 0; i < n; i++)
+      {
+          if(arr[i]-1 == lastSmallest)
+          {
+              currCount++;
+              lastSmallest = arr[i];
+          }
+          else if(arr[i] != lastSmallest)
+          {
+              currCount = 1;
+              lastSmallest = arr[i];
+          }
+          longestLength = max(longestLength, currCount);
+      }
+      return longestLength;
+    }
+//Optimal Solution
