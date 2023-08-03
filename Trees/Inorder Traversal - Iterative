@@ -1,7 +1,10 @@
-vector<int> inorderTraversal(TreeNode* root) {
-stack<TreeNode*> st;
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root)
+    {
+        stack<TreeNode*>st;
+        vector<int> ans;
         TreeNode* node = root;
-        vector<int> inorder;
 
         while(true)
         {
@@ -10,16 +13,15 @@ stack<TreeNode*> st;
                 st.push(node);
                 node = node->left;
             }
-    
-            else
+            else 
             {
-                if(st.empty() == true)
-                    break;
+                if(st.empty() == true) break;
                 node = st.top();
                 st.pop();
-                inorder.push_back(node->val);
+                ans.push_back(node->val);
                 node = node->right;
             }
         }
-        return inorder;
-}
+        return ans;
+    }
+};
