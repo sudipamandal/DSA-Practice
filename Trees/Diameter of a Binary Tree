@@ -1,0 +1,16 @@
+int height(TreeNode *root, int &diamter)
+{
+    if(root == NULL) return 0;
+    int lh = height(root->left, diamater);
+    int rh = height(root->right, diameter);
+    diameter = max(diameter, lh+rh);
+
+    return 1 + max(lh, rh);
+}
+
+int diamaterOfBinaryTree(TreeNode *root)
+{
+    int diameter = 0;
+    height(root, diameter);
+    return diameter;
+}
