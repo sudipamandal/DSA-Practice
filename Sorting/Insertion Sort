@@ -1,0 +1,36 @@
+// Select an element in each iteration from the unsorted array(using a loop).
+// Place it in its corresponding position in the sorted part and shift the remaining elements accordingly (using an inner loop and swapping).
+// The “inner while loop” basically shifts the elements using swapping.
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void insertionSort(vector<int> &arr)
+{
+    int n = arr.size() - 1;
+    for (int i = 0; i < n; i++)
+    {
+        int j = i;
+        while (j > 0 && arr[j] < arr[j - 1])
+        {
+            int temp = arr[j];
+            arr[j] = arr[j - 1];
+            arr[j - 1] = temp;
+        }
+    }
+}
+
+int main()
+{
+    vector<int> A = {1, 90, 8, 10, 35, 31, 20, 75};
+    insertionSort(A);
+
+    for (auto i : A)
+    {
+        cout << i << " ";
+    }
+
+    return 0;
+}
