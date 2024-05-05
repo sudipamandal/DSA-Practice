@@ -1,0 +1,16 @@
+A) Brute Force Approach - using a temporary array
+Right Shift:
+Steps:
+1. Copy last k elements from nums arr to temp arr
+2. Shift n-k elements from ith position to i+kth position
+3. Copy the k elements from the temp arr into the beginning k positions in the nums arr
+
+def rotate(nums : List[int], k : int):
+  n = len(nums)
+  k = k % n
+  temp = nums[n-k:]
+  for i in range(n-1, k-1, -1):
+    nums[i] = nums[i-k]
+  nums[0:k] = temp[0:k]
+
+B) Optimal Approach
