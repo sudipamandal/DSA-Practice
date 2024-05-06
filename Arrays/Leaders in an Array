@@ -1,0 +1,35 @@
+//Brute Force
+def printLeadersBruteForce(arr, n):
+    ans = []
+  
+    for i in range(n):
+        leader = True
+
+        # Checking whether arr[i] is greater than all the elements on its right side
+        for j in range(i+1, n):
+            if arr[j] > arr[i]:
+                # If any element found is greater than current leader, curr element is not the leader.
+                leader = False
+                break
+
+        # Push all the leaders in ans array.
+        if leader:
+            ans.append(arr[i])
+
+    return ans
+
+//Better Approach
+from typing import *
+
+def superiorElements(a : List[int]) -> List[int]:
+    # Write your code here.
+    n = len(a)
+    maxi = a[n-1]
+    ans = []
+    ans.append(a[n-1])
+    for i in range(n-2, -1, -1):
+        if a[i] > maxi:
+            ans.append(a[i])
+            maxi = a[i]
+
+    return ans
