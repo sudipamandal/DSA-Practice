@@ -1,0 +1,39 @@
+// Brute Force Approach
+def maxSubArray(self, nums: List[int]) -> int:
+        n = len(nums)
+        maxi = -sys.maxsize - 1
+        for i in range(n):
+            for j in range(i, n):
+                # [i,.......j]
+                summ = 0
+                for k in range(i, j+1):
+                    summ += nums[k]
+                maxi = max(maxi, summ)
+        return maxi
+
+// Better Approach
+    def maxSubArray(self, nums: List[int]) -> int:
+        n = len(nums)
+        maxi = -sys.maxsize - 1
+        for i in range(n):
+            summ = 0
+            for j in range(i, n):
+                # [i,.......j]
+                summ += nums[j]
+                maxi = max(maxi, summ)
+        return maxi
+
+// Optimal Approach - Kadane's Algorithm
+def maxSubArray(self, nums: List[int]) -> int:
+        n = len(nums)
+        maxi = -sys.maxsize - 1
+        summ = 0
+        for i in range(n):
+            summ += nums[i]
+
+            if summ > maxi:
+                maxi = summ
+
+            if summ < 0:
+                summ = 0
+        return maxi
