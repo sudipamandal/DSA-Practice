@@ -1,4 +1,6 @@
 # Bubble Sort
+# Time Complexity : Worst Case - O(n^2) , Best Case - O(n) when array is already sorted
+
 def bubble_sort(arr):
   n = len(arr)
   for i in range(n):
