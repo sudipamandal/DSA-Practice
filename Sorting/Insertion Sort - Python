@@ -1,4 +1,5 @@
 # Insertion Sort - select elements from unsorted part of the array and insert it into its correct position in the sorted part
+# Time Complexity : Worst Case - O(n^2) , Best Case - O(n) when array is already sorted
 
 def insertion_sort(arr):
   n = len(arr)
